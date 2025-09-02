@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Calculator</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: lightblue;
+      font-family: Arial, sans-serif;
+    }
+
+    .calculator {
+      width: 350px;
+      background: pink;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      color: #fff;
+    }
+
+    .display {
+      width: 90%;
+      height: 60px;
+      margin-bottom: 20px;
+      text-align: right;
+      padding: 15px;
+      font-size: 1.6rem;
+      border: none;
+      background: #111;
+      color: #0f0;
+      border-radius: 10px;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    button {
+      height: 65px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.2s;
+      background:lightcoral;
+      color: white;
+    }
+
+    button:hover {
+      background: #555;
+    }
+
+    .operator {
+      background:mediumpurple;
+    }
+
+    .special {
+      background: #339af0;
+    }
+
+    .equals {
+      background:lightseagreen;
+      grid-column: span 2;
+    }
+
+    .clear {
+      background:grey;
+      grid-column: span 2;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <input type="text" class="display" id="display" disabled>
+    <div class="buttons">
+      <button class="clear">C</button>
+      <button class="special">√</button>
+      <button class="special">x²</button>
+      <button class="special">%</button>
+
+      <button>7</button>
+      <button>8</button>
+      <button>9</button>
+      <button class="operator">/</button>
+
+      <button>4</button>
+      <button>5</button>
+      <button>6</button>
+      <button class="operator">*</button>
+
+      <button>1</button>
+      <button>2</button>
+      <button>3</button>
+      <button class="operator">-</button>
+
+      <button>0</button>
+      <button>.</button>
+      <button class="equals">=</button>
+      <button class="operator">+</button>
+    </div>
+  </div>
+
+  <script>
+    const display = document.getElementById("display");
+    const buttons = document.querySelectorAll("button");
+
+    let currentInput = "";
+
+    function calculate(value) {
+      if (value === "C") {
+        currentInput = "";
+        display.value = "";
+      } else if (value === "=") {
+        try {
+          currentInput = eval(currentInput).toString();
+          display.value = currentInput;
+        } catch {
+          display.value = "Error";
+          currentInput = "";
+        }
+      } else if (value === "√") {
+        try {
+          currentInput = Math.sqrt(eval(currentInput)).toString();
+          display.value = currentInput;
+        } catch {
+          display.value = "Error";
+          currentInput = "";
+        }
+      } else if (value === "x²") {
+        try {
+          currentInput = Math.pow(eval(currentInput), 2).toString();
+          display.value = currentInput;
+        } catch {
+          display.value = "Error";
+          currentInput = "";
+        }
+      } else if (value === "%") {
+        try {
+          currentInput = (eval(currentInput) / 100).toString();
+          display.value = currentInput;
+        } catch {
+          display.value = "Error";
+          currentInput = "";
+        }
+      } else {
+        currentInput += value;
+        display.value = currentInput;
+      }
+    }
+
+    buttons.forEach(button => {
+      button.addEventListener("click", () => {
+        calculate(button.textContent);
+      });
+    });
+
+    // Keyboard support
+    document.addEventListener("keydown", (event) => {
+      const key = event.key;
+      if (!isNaN(key) || ["+", "-", "*", "/", "."].includes(key)) {
+        currentInput += key;
+        display.value = currentInput;
+      } else if (key === "Enter") {
+        calculate("=");
+      } else if (key === "Backspace") {
+        currentInput = currentInput.slice(0, -1);
+        display.value = currentInput;
+      } else if (key.toLowerCase() === "c") {
+        calculate("C");
+      }
+    });
+  </script>
+</body>
+</html>
