@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background: lightcyan;
+    }
+    /* Navbar */
+    nav {
+      background: lightcoral;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav .logo {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li {
+      margin: 0 15px;
+    }
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    nav ul li a:hover {
+      color: #007bff;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      background: #333;
+      color: white;
+      padding: 80px 50px;
+    }
+    .hero-text {
+      max-width: 500px;
+    }
+    .hero-text h1 {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+    .hero-text p {
+      margin-bottom: 20px;
+    }
+    .btn {
+      background:pink;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 16px;
+    }
+    .btn:hover {
+      background: #0056b3;
+    }
+    .hero img {
+      max-width: 350px;
+      border-radius: 10px;
+    }
+
+    /* About Section */
+    #about {
+      background: lightblue;
+      padding: 60px 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+    #about img {
+      max-width: 250px;
+      border-radius: 10px;
+    }
+    #about .about-text {
+      max-width: 600px;
+    }
+    #about h2 {
+      margin-bottom: 15px;
+    }
+
+    /* Resume Button */
+    .resume-btn {
+      margin-top: 20px;
+      display: inline-block;
+    }
+
+    /* Footer */
+    footer {
+      background: #222;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+    /* General section styling */
+.section {
+  padding: 60px 20px;
+  text-align: center;
+}
+.section h2 {
+  font-size: 2em;
+  margin-bottom: 30px;
+}
+.light-bg {
+  background-color: #f9f9f9;
+}
+
+/* Services */
+.services-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.service-card {
+  background: #fff;
+  padding: 20px;
+  width: 250px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+}
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Skills */
+.skills-container {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+.skill-bar {
+  background: #ddd;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+.skill-bar span {
+  display: block;
+  background: #ff6f61;
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: bold;
+  text-align: right;
+}
+
+/* Works */
+.works-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.work-card {
+  background: #fff;
+  padding: 20px;
+  width: 280px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+}
+.work-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Contact */
+.contact-form {
+  max-width: 500px;
+  margin: 0 auto;            /* Centers horizontally */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: left;          /* Keeps labels aligned left */
+}
+
+.contact-form label {
+  font-weight: bold;
+  text-align: left;
+}
+
+.contact-form input, 
+.contact-form textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1em;
+  width: 100%;              /* Full width inputs */
+  box-sizing: border-box;
+}
+
+.contact-form button {
+  background: #ff6f61;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.contact-form button:hover {
+  background: #e55b50;
+}
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">Online Portfolio</div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#works">Works</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-text">
+      <h1>MISBAAH SHAIKH</h1>
+      <p>Hi, I am a Professional Developer and VESASC Graduate. I have experience in Web Development, Programming, and Software Solutions.</p>
+      <a href="#contact" class="btn">Hire Me</a>
+    </div>
+    <img src="profile2.png" alt="Profile Photo" width="400">
+
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <img src="profile.png" alt="About Photo">
+    <div class="about-text">
+      <h2>About Me</h2>
+      <p>I am a passionate web developer with expertise in creating websites and applications. I specialize in HTML, CSS, JavaScript,python,SQL and backend technologies. My goal is to deliver high-quality software solutions for clients worldwide.</p>
+      <a href="resume.pdf" download class="btn resume-btn">Download Resume</a>
+    </div>
+  </section>
+  <!-- Services Section -->
+<section id="services" class="section">
+  <h2>My Services</h2>
+  <div class="services-container">
+    <div class="service-card">
+      <h3>Web Development</h3>
+      <p>Building responsive and dynamic websites using HTML, CSS, JavaScript.</p>
+    </div>
+    <div class="service-card">
+      <h3>Backend Development</h3>
+      <p>Developing backend solutions using Python, SQL, and REST APIs.</p>
+    </div>
+    <div class="service-card">
+      <h3>Database Management</h3>
+      <p>Efficient handling of relational databases with MySQL & SQL queries.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills" class="section light-bg">
+  <h2>My Skills</h2>
+  <div class="skills-container">
+    <p>HTML & CSS</p>
+    <div class="skill-bar"><span style="width:90%;">90%</span></div>
+
+    <p>JavaScript</p>
+    <div class="skill-bar"><span style="width:75%;">75%</span></div>
+
+    <p>Python</p>
+    <div class="skill-bar"><span style="width:85%;">85%</span></div>
+
+    <p>SQL</p>
+    <div class="skill-bar"><span style="width:80%;">80%</span></div>
+  </div>
+</section>
+
+<!-- Works Section -->
+<section id="works" class="section">
+  <h2>My Works</h2>
+  <div class="works-container">
+    <div class="work-card">
+      <h3>Portfolio Website</h3>
+      <p>A personal portfolio website built using HTML, CSS, and JavaScript.</p>
+    </div>
+    <div class="work-card">
+      <h3>Job Board App</h3>
+      <p>A full-stack job board application using React, Node.js, and MongoDB.</p>
+    </div>
+    <div class="work-card">
+      <h3>Flask Project</h3>
+      <p>A Python Flask project created during my 2-day workshop.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="section light-bg">
+  <h2>Contact Me</h2>
+
+  <form class="contact-form" action="https://formspree.io/f/yourFormID" method="POST">
+    <label for="name">Your Name</label>
+    <input type="text" placeholder="Enter your name" name="name" required>
+
+    <label for="email">Your Email</label>
+    <input type="email" placeholder="Enter your email" name="email" required>
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="5" placeholder="Write your message..." required></textarea>
+
+    <button type="submit">Send</button>
+  </form>
+</section>
+
+
+<!-- Resume Download -->
+<section id="resume" class="section">
+  <h2>My Resume</h2>
+  <p>You can download my resume by clicking the button below:</p>
+  <a href="Resume.pdf" download class="resume-btn">Download Resume</a>
+</section>
+
+ <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Misbaah Shaikh| All Rights Reserved</p>
+  </footer>
+
+</body>
+</html>
